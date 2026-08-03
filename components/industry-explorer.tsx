@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import type { Division } from '@/lib/site-data'
+import { Reveal } from '@/components/reveal'
 
 interface IndustryExplorerProps {
   industries: Division['industriesList']
@@ -13,13 +14,17 @@ export function IndustryExplorer({ industries = [] }: IndustryExplorerProps) {
   if (!industries || industries.length === 0) return null
 
   return (
-    <section id="industries" className="reveal flex min-h-screen flex-col items-center justify-center bg-background px-6 py-32 md:py-48">
+    <Reveal
+      as="section"
+      id="environments"
+      className="flex min-h-screen flex-col items-center justify-center bg-background px-6 py-32 md:py-48"
+    >
       <div className="w-full max-w-3xl space-y-8">
         {/* Section Header */}
         <div className="space-y-4">
-          <h2 className="text-xs uppercase tracking-[0.25em] text-foreground/50">Industries We Serve</h2>
-          <p className="text-3xl font-light text-foreground md:text-4xl">
-            Expertise across diverse environments
+          <h2 className="text-xs uppercase tracking-[0.25em] text-foreground/50">Environment Explorer</h2>
+          <p className="text-balance text-3xl font-light text-foreground md:text-4xl">
+            Every environment holds potential
           </p>
         </div>
 
@@ -76,6 +81,6 @@ export function IndustryExplorer({ industries = [] }: IndustryExplorerProps) {
           ))}
         </div>
       </div>
-    </section>
+    </Reveal>
   )
 }

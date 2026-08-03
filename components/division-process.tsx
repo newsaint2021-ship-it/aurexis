@@ -1,6 +1,7 @@
 'use client'
 
 import type { Division } from '@/lib/site-data'
+import { Reveal } from '@/components/reveal'
 
 interface DivisionProcessProps {
   steps: Division['processSteps']
@@ -10,12 +11,15 @@ export function DivisionProcess({ steps = [] }: DivisionProcessProps) {
   if (!steps || steps.length === 0) return null
 
   return (
-    <section className="reveal flex flex-col items-center justify-center bg-muted/30 px-6 py-32 md:py-48">
+    <Reveal
+      as="section"
+      className="flex flex-col items-center justify-center bg-muted/30 px-6 py-32 md:py-48"
+    >
       <div className="w-full max-w-5xl space-y-12">
         {/* Section Header */}
         <div className="space-y-4">
-          <h2 className="text-xs uppercase tracking-[0.25em] text-foreground/50">Our Process</h2>
-          <p className="text-3xl font-light text-foreground md:text-4xl">
+          <h2 className="text-xs uppercase tracking-[0.25em] text-foreground/50">The Aurexis Method</h2>
+          <p className="text-balance text-3xl font-light text-foreground md:text-4xl">
             Engineered precision, every step
           </p>
         </div>
@@ -41,6 +45,6 @@ export function DivisionProcess({ steps = [] }: DivisionProcessProps) {
           ))}
         </div>
       </div>
-    </section>
+    </Reveal>
   )
 }

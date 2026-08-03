@@ -1,6 +1,7 @@
 'use client'
 
 import type { Division } from '@/lib/site-data'
+import { Reveal } from '@/components/reveal'
 
 interface MaterialsLibraryProps {
   materials: Division['materialsLibrary']
@@ -10,13 +11,16 @@ export function MaterialsLibrary({ materials = [] }: MaterialsLibraryProps) {
   if (!materials || materials.length === 0) return null
 
   return (
-    <section className="reveal flex min-h-screen flex-col items-center justify-center bg-muted/30 px-6 py-32 md:py-48">
+    <Reveal
+      as="section"
+      className="flex min-h-screen flex-col items-center justify-center bg-muted/30 px-6 py-32 md:py-48"
+    >
       <div className="w-full max-w-5xl space-y-12">
         {/* Section Header */}
         <div className="space-y-4">
-          <h2 className="text-xs uppercase tracking-[0.25em] text-foreground/50">Materials Palette</h2>
-          <p className="text-3xl font-light text-foreground md:text-4xl">
-            Engineering surfaces with precision
+          <h2 className="text-xs uppercase tracking-[0.25em] text-foreground/50">Material Intelligence Library</h2>
+          <p className="text-balance text-3xl font-light text-foreground md:text-4xl">
+            Surfaces studied like materials in an atelier
           </p>
         </div>
 
@@ -51,6 +55,6 @@ export function MaterialsLibrary({ materials = [] }: MaterialsLibraryProps) {
           ))}
         </div>
       </div>
-    </section>
+    </Reveal>
   )
 }

@@ -1,6 +1,7 @@
 'use client'
 
 import type { Division } from '@/lib/site-data'
+import { Reveal } from '@/components/reveal'
 
 interface TransformationStoriesProps {
   stories: Division['transformationStories']
@@ -10,13 +11,16 @@ export function TransformationStories({ stories = [] }: TransformationStoriesPro
   if (!stories || stories.length === 0) return null
 
   return (
-    <section className="reveal flex flex-col items-center justify-center bg-background px-6 py-32 md:py-48">
+    <Reveal
+      as="section"
+      className="flex flex-col items-center justify-center bg-background px-6 py-32 md:py-48"
+    >
       <div className="w-full max-w-5xl space-y-12">
         {/* Section Header */}
         <div className="space-y-4">
-          <h2 className="text-xs uppercase tracking-[0.25em] text-foreground/50">Transformation Stories</h2>
-          <p className="text-3xl font-light text-foreground md:text-4xl">
-            Real projects, measurable impact
+          <h2 className="text-xs uppercase tracking-[0.25em] text-foreground/50">Transformation Journal</h2>
+          <p className="text-balance text-3xl font-light text-foreground md:text-4xl">
+            Stories of environments, reborn
           </p>
         </div>
 
@@ -51,6 +55,6 @@ export function TransformationStories({ stories = [] }: TransformationStoriesPro
           ))}
         </div>
       </div>
-    </section>
+    </Reveal>
   )
 }
