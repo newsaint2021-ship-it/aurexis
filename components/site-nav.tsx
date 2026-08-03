@@ -73,10 +73,10 @@ export function SiteNav() {
             <Link
               href="/contact"
               className={cn(
-                'hidden rounded-xl px-5 py-2.5 text-xs font-medium uppercase tracking-[0.18em] transition-all duration-500 sm:block',
+                'hidden rounded-xl px-5 py-2.5 text-xs font-medium uppercase tracking-[0.18em] transition-all duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 sm:block',
                 light
-                  ? 'bg-primary text-primary-foreground hover:opacity-90'
-                  : 'glass-dark text-primary-foreground hover:bg-primary/60',
+                  ? 'bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-primary focus-visible:ring-offset-background'
+                  : 'glass-button-subtle text-primary-foreground focus-visible:ring-primary-foreground focus-visible:ring-offset-transparent',
               )}
             >
               Consultation
@@ -87,10 +87,10 @@ export function SiteNav() {
               aria-expanded={open}
               aria-controls="fullscreen-menu"
               className={cn(
-                'flex items-center gap-3 rounded-xl px-5 py-2.5 text-xs font-medium uppercase tracking-[0.18em] transition-all duration-500',
+                'flex items-center gap-3 rounded-xl px-5 py-2.5 text-xs font-medium uppercase tracking-[0.18em] transition-all duration-300 focus-visible:ring-2 focus-visible:ring-offset-2',
                 light
-                  ? 'border border-border text-foreground hover:bg-secondary'
-                  : 'border border-primary-foreground/25 text-primary-foreground hover:bg-primary-foreground/10',
+                  ? 'border border-border text-foreground hover:bg-secondary focus-visible:ring-primary focus-visible:ring-offset-background'
+                  : 'border border-primary-foreground/30 text-primary-foreground hover:border-primary-foreground/50 hover:bg-primary-foreground/12 focus-visible:ring-primary-foreground focus-visible:ring-offset-transparent',
               )}
             >
               <span className="relative flex h-2.5 w-5 flex-col justify-between" aria-hidden="true">
@@ -220,10 +220,10 @@ export function SiteNav() {
                 <Link
                   href="/contact"
                   onClick={close}
-                  className="glass-dark lift mt-2 inline-flex w-fit items-center gap-2 rounded-2xl px-7 py-3.5 text-xs font-medium uppercase tracking-[0.2em] text-primary-foreground"
+                  className="glass-button-subtle lift mt-2 inline-flex w-fit items-center gap-2 rounded-2xl px-7 py-3.5 text-xs font-medium uppercase tracking-[0.2em] text-primary-foreground transition-all duration-400 focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
                 >
                   Book Consultation
-                  <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                  <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
                 </Link>
               </div>
             </div>

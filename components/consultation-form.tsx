@@ -69,7 +69,7 @@ export function ConsultationForm() {
       </label>
       <button
         type="submit"
-        className="lift mt-2 rounded-xl bg-primary px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] text-primary-foreground"
+        className="lift mt-2 rounded-xl bg-primary px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] text-primary-foreground transition-all duration-300 hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
       >
         Request Consultation
       </button>

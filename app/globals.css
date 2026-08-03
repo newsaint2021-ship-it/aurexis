@@ -97,6 +97,70 @@
     0 24px 60px -24px oklch(0.1 0.05 258 / 55%);
 }
 
+/* ————— Premium Glass Button Variants ————— */
+
+.glass-button-prominent {
+  background: oklch(0.982 0.01 88 / 65%);
+  backdrop-filter: blur(28px) saturate(1.5);
+  -webkit-backdrop-filter: blur(28px) saturate(1.5);
+  border: 1px solid oklch(1 0 0 / 52%);
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 70%) inset,
+    0 8px 24px -8px oklch(0.24 0.07 258 / 20%),
+    0 0 1px oklch(1 0 0 / 30%);
+  color: oklch(0.28 0.01 260);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-button-prominent:hover {
+  background: oklch(0.985 0.008 88 / 75%);
+  backdrop-filter: blur(32px) saturate(1.6);
+  -webkit-backdrop-filter: blur(32px) saturate(1.6);
+  border-color: oklch(1 0 0 / 65%);
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 80%) inset,
+    0 16px 40px -16px oklch(0.24 0.07 258 / 28%),
+    0 0 2px oklch(1 0 0 / 40%);
+  transform: translateY(-2px);
+}
+
+.glass-button-prominent:active {
+  transform: translateY(0);
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 60%) inset,
+    0 4px 12px -4px oklch(0.24 0.07 258 / 12%);
+}
+
+.glass-button-subtle {
+  background: oklch(0.24 0.07 258 / 35%);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border: 1px solid oklch(1 0 0 / 12%);
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 10%) inset,
+    0 6px 16px -8px oklch(0.1 0.05 258 / 40%);
+  color: oklch(0.97 0.01 84);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-button-subtle:hover {
+  background: oklch(0.24 0.07 258 / 45%);
+  backdrop-filter: blur(24px) saturate(1.3);
+  -webkit-backdrop-filter: blur(24px) saturate(1.3);
+  border-color: oklch(1 0 0 / 18%);
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 15%) inset,
+    0 12px 28px -12px oklch(0.1 0.05 258 / 50%);
+  transform: translateY(-2px);
+}
+
+.glass-button-subtle:active {
+  transform: translateY(0);
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 8%) inset,
+    0 3px 8px -4px oklch(0.1 0.05 258 / 30%);
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -130,13 +194,33 @@
 
 .lift {
   transition:
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    backdrop-filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
 }
 
 .lift:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 40px 80px -32px oklch(0.24 0.07 258 / 30%);
+  transform: translateY(-4px);
+  box-shadow: 0 32px 72px -20px oklch(0.24 0.07 258 / 32%);
+}
+
+.lift:active {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px -12px oklch(0.24 0.07 258 / 18%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lift {
+    transition: none;
+    will-change: auto;
+  }
+  .lift:hover {
+    transform: none;
+  }
+  .lift:active {
+    transform: none;
+  }
 }
 
 .img-reveal img {
@@ -187,4 +271,62 @@
     oklch(0.24 0.07 258 / 35%) 45%,
     oklch(0.24 0.07 258 / 45%)
   );
+}
+
+/* ————— Premium Interactive Effects ————— */
+
+/* Enhanced focus ring for keyboard navigation */
+@layer components {
+  .focus-ring {
+    @apply outline-none;
+  }
+  
+  .focus-ring:focus-visible {
+    outline: 2px solid oklch(0.24 0.07 258);
+    outline-offset: 2px;
+  }
+}
+
+/* Smooth input transitions */
+input:not([type='checkbox']):not([type='radio']),
+textarea,
+select {
+  @apply transition-colors duration-200;
+}
+
+input:focus:not([type='checkbox']):not([type='radio']),
+textarea:focus,
+select:focus {
+  @apply border-primary;
+}
+
+/* Premium link underline effect */
+a.premium-link {
+  position: relative;
+  color: oklch(0.24 0.07 258);
+  text-decoration: none;
+}
+
+a.premium-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: oklch(0.24 0.07 258);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+a.premium-link:hover::after {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.premium-link::after {
+    transition: none;
+  }
+  a.premium-link:hover::after {
+    width: 100%;
+  }
 }

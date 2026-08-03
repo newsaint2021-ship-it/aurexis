@@ -89,13 +89,13 @@ export function Hero() {
         <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row">
           <a
             href="#divisions"
-            className="glass-dark lift rounded-2xl px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] text-primary-foreground"
+            className="glass-button-subtle lift rounded-2xl px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] text-primary-foreground transition-all duration-400"
           >
             Explore Divisions
           </a>
           <Link
             href="/contact"
-            className="lift rounded-2xl border border-primary-foreground/25 px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] text-primary-foreground/85 hover:text-primary-foreground"
+            className="group lift rounded-2xl border border-primary-foreground/30 px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] text-primary-foreground/85 transition-all duration-400 hover:border-primary-foreground/50 hover:text-primary-foreground"
           >
             Book Consultation
           </Link>
