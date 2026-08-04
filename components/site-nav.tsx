@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ArrowUpRight } from 'lucide-react'
 import { Logo, LogoMark } from '@/components/logo'
-import { company, divisions } from '@/lib/site-data'
+import { company, studios } from '@/lib/site-data'
 import { cn } from '@/lib/utils'
 
 const pages = [
@@ -128,8 +128,8 @@ export function SiteNav() {
 
         <div className="relative flex h-full flex-col overflow-y-auto px-6 pb-10 pt-28 md:px-12 md:pt-36">
           <div className="mx-auto grid w-full max-w-6xl gap-12 md:grid-cols-12 md:gap-8">
-            {/* Divisions */}
-            <nav aria-label="Divisions" className="md:col-span-7">
+            {/* Studios */}
+            <nav aria-label="Studios" className="md:col-span-7">
               <p
                 className={cn(
                   'menu-item mb-8 text-[0.65rem] font-medium uppercase tracking-[0.4em] text-primary-foreground/40',
@@ -137,13 +137,13 @@ export function SiteNav() {
                 )}
                 style={{ '--menu-delay': '100ms' } as React.CSSProperties}
               >
-                Divisions
+                Studios
               </p>
               <ul className="flex flex-col">
-                {divisions.map((division, i) => (
-                  <li key={division.slug}>
+                {studios.map((studio, i) => (
+                  <li key={studio.slug}>
                     <Link
-                      href={`/divisions/${division.slug}`}
+                      href={`/divisions/${studio.slug}`}
                       onClick={close}
                       className={cn(
                         'menu-item group flex items-baseline gap-4 border-b border-primary-foreground/10 py-4 md:py-5',
@@ -155,7 +155,7 @@ export function SiteNav() {
                         0{i + 1}
                       </span>
                       <span className="font-serif text-3xl font-light text-primary-foreground transition-colors duration-500 group-hover:text-primary-foreground/70 md:text-5xl">
-                        {division.title}
+                        {studio.title}
                       </span>
                       <ArrowUpRight
                         className="ml-auto size-5 shrink-0 self-center text-primary-foreground/30 transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-primary-foreground"

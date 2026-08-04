@@ -26,7 +26,7 @@ export function Manifesto() {
         <Reveal delay={300}>
           <dl className="mt-20 grid grid-cols-3 gap-8 border-t border-primary-foreground/15 pt-12">
             {[
-              { value: '4', label: 'Divisions' },
+              { value: '4', label: 'Studios' },
               { value: '120+', label: 'Environments Transformed' },
               { value: '10 yr', label: 'Material Warranties' },
             ].map((stat) => (
