@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Logo } from '@/components/logo'
-import { company, divisions } from '@/lib/site-data'
+import { company, studios } from '@/lib/site-data'
 
 const companyLinks = [
   { href: '/about', label: 'About' },
@@ -25,23 +25,23 @@ export function SiteFooter() {
             <Logo inverted />
             <p className="mt-8 max-w-xs text-sm font-light leading-relaxed text-primary-foreground/55">
               A surface transformation company. Engineering better experiences
-              through architecture, glass, communication and mobility.
+              through architecture, commercial branding, glass and mobility.
             </p>
           </div>
 
-          {/* Divisions */}
-          <nav aria-label="Divisions" className="lg:col-span-3">
+          {/* Studios */}
+          <nav aria-label="Studios" className="lg:col-span-3">
             <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-primary-foreground/40">
-              Divisions
+              Studios
             </p>
             <ul className="mt-6 flex flex-col gap-3.5">
-              {divisions.map((division) => (
-                <li key={division.slug}>
+              {studios.map((studio) => (
+                <li key={studio.slug}>
                   <Link
-                    href={`/divisions/${division.slug}`}
+                    href={`/divisions/${studio.slug}`}
                     className="text-sm font-light text-primary-foreground/70 transition-colors hover:text-primary-foreground"
                   >
-                    {division.title}
+                    {studio.title}
                   </Link>
                 </li>
               ))}

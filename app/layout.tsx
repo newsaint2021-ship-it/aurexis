@@ -20,11 +20,11 @@ export const metadata: Metadata = {
     template: '%s — AUREXIS',
   },
   description:
-    'A surface transformation company. Built environments, glass technologies, visual communications and mobility — engineered with precision from Cape Town and Victoria Falls.',
+    'A surface transformation company. Built environments, commercial branding, glass technologies and mobility — engineered with precision from Cape Town and Victoria Falls.',
   openGraph: {
     title: 'AUREXIS — Surface Transformations',
     description:
-      'Engineering better experiences through surfaces. Architecture, glass, visual communication and mobility.',
+      'Engineering better experiences through surfaces. Architecture, commercial branding, glass and mobility.',
     siteName: 'AUREXIS',
     type: 'website',
   },

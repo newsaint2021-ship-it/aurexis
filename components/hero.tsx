@@ -24,7 +24,7 @@ const slides = [
   {
     src: '/images/hero-hotel.png',
     alt: 'Boutique hotel lobby with layered architectural surfaces',
-    caption: 'Visual Communications',
+    caption: 'Commercial Branding',
   },
 ]
 
@@ -91,7 +91,7 @@ export function Hero() {
             href="#divisions"
             className="glass-dark lift rounded-2xl px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] text-primary-foreground"
           >
-            Explore Divisions
+            Explore Studios
           </a>
           <Link
             href="/contact"

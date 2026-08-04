@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, type FormEvent } from 'react'
-import { divisions } from '@/lib/site-data'
+import { studios } from '@/lib/site-data'
 
 export function ConsultationForm() {
   const [submitted, setSubmitted] = useState(false)
@@ -48,13 +48,13 @@ export function ConsultationForm() {
         </label>
       </div>
       <label className="flex flex-col gap-2 text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
-        Division
+        Studio
         <select
           name="division"
           className="rounded-xl border border-input bg-background px-4 py-3 text-sm normal-case tracking-normal text-foreground outline-none transition-colors focus:border-primary"
         >
-          {divisions.map((division) => (
-            <option key={division.slug}>{division.title}</option>
+          {studios.map((studio) => (
+            <option key={studio.slug}>{studio.title}</option>
           ))}
         </select>
       </label>

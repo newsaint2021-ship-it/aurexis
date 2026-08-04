@@ -188,3 +188,22 @@
     oklch(0.24 0.07 258 / 45%)
   );
 }
+
+.studio-hero-image {
+  animation: studio-drift 18s ease-out both;
+}
+
+@keyframes studio-drift {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .studio-hero-image {
+    animation: none;
+  }
+}
