@@ -207,3 +207,95 @@
     animation: none;
   }
 }
+
+/* ————— Studio showroom ————— */
+
+.surface-card-scrim {
+  background: linear-gradient(
+    to top,
+    oklch(0.18 0.05 258 / 88%),
+    oklch(0.18 0.05 258 / 8%) 72%
+  );
+}
+
+.surface-card-detail {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(0.75rem);
+  transition:
+    max-height 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.5s ease,
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.surface-card:hover .surface-card-detail,
+.surface-card:focus-visible .surface-card-detail {
+  max-height: 9rem;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.journey-line {
+  position: relative;
+}
+
+.journey-step::before {
+  position: absolute;
+  top: 2.15rem;
+  left: 0;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: var(--accent);
+  content: '';
+}
+
+.journey-step:not(:last-child)::after {
+  position: absolute;
+  top: 2.6rem;
+  bottom: -2.15rem;
+  left: 0.2rem;
+  width: 1px;
+  background: oklch(0.97 0.01 84 / 20%);
+  content: '';
+}
+
+.material-swatch::after {
+  position: absolute;
+  inset: 0;
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 50%) inset,
+    0 -24px 60px -40px oklch(0.1 0.02 260 / 45%) inset;
+  content: '';
+  pointer-events: none;
+}
+
+.faq-disclosure::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition:
+    block-size 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    content-visibility 0.45s allow-discrete;
+}
+
+.faq-disclosure[open]::details-content {
+  block-size: auto;
+}
+
+@media (min-width: 768px) {
+  .journey-step::before,
+  .journey-step:not(:last-child)::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .surface-card-detail {
+    transition: none;
+  }
+
+  .faq-disclosure::details-content {
+    transition: none;
+  }
+}
