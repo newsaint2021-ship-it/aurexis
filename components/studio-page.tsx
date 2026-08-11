@@ -17,6 +17,54 @@ function SectionIntro({ eyebrow, title, copy, inverse = false }: { eyebrow: stri
   )
 }
 
+function TerritorySection({ studio }: { studio: Studio }) {
+  if (!studio.territories) return null
+
+  return (
+    <section className="bg-secondary">
+      <div className="mx-auto max-w-7xl px-6 py-28 md:py-40">
+        <SectionIntro
+          eyebrow="Built Environments"
+          title="Three territories. One surface practice."
+          copy="Interior, exterior and floor systems are considered as one coherent built environment."
+        />
+        <div className="mt-16 border-t border-border lg:mt-20">
+          {studio.territories.map((territory, index) => (
+            <Reveal key={territory.title} delay={index * 70}>
+              <article className="grid gap-8 border-b border-border py-10 md:grid-cols-12 md:items-start md:py-14">
+                <div className="md:col-span-5">
+                  <p className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-accent">
+                    {String(index + 1).padStart(2, '0')}
+                  </p>
+                  <h3 className="mt-4 font-serif text-4xl font-light md:text-5xl">{territory.title}</h3>
+                  <p className="mt-5 max-w-lg text-sm leading-relaxed text-muted-foreground md:text-base">{territory.copy}</p>
+                  {territory.partner ? (
+                    <p className="mt-5 max-w-lg border-l border-accent pl-4 text-sm leading-relaxed text-foreground">
+                      {territory.partner}
+                    </p>
+                  ) : null}
+                </div>
+                <div className="md:col-span-7 md:grid md:grid-cols-7 md:gap-8">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-3xl md:col-span-4">
+                    <Image src={territory.image} alt={territory.alt} fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover" />
+                  </div>
+                  <ul className="mt-6 flex flex-col border-t border-border md:col-span-3 md:mt-0">
+                    {territory.capabilities.map((capability) => (
+                      <li key={capability} className="border-b border-border py-3 text-sm leading-relaxed">
+                        {capability}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function SurfaceSection({ studio }: { studio: Studio }) {
   return (
     <section className="bg-secondary">
@@ -228,6 +276,7 @@ export function StudioPage({ studio }: { studio: Studio }) {
         </div>
       </section>
 
+      <TerritorySection studio={studio} />
       <SurfaceSection studio={studio} />
       <IndustriesSection studio={studio} />
       <JourneySection />

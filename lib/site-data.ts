@@ -39,6 +39,14 @@ type StudioPrinciple = { title: string; proof: string }
 type StudioMaterial = { title: string; finish: string; use: string; image: string }
 type StudioFaq = { question: string; answer: string }
 type StudioGalleryItem = { image: string; alt: string; caption: string; format: 'wide' | 'portrait' | 'detail' }
+export type StudioTerritory = {
+  title: string
+  copy: string
+  capabilities: string[]
+  image: string
+  alt: string
+  partner?: string
+}
 
 export type Studio = {
   slug: string
@@ -53,6 +61,7 @@ export type Studio = {
   heroAlt: string
   environmentsLabel: string
   environments: StudioEnvironment[]
+  territories?: StudioTerritory[]
   industries: StudioEnvironment[]
   principles: StudioPrinciple[]
   gallery: StudioGalleryItem[]
@@ -86,8 +95,8 @@ export const studios: Studio[] = [
     shortTitle: 'Built Environments',
     eyebrow: 'Studio 01',
     headline: 'Architecture, resurfaced',
-    line: 'Interiors reimagined through architectural surface systems.',
-    overview: 'Walls, cabinetry and joinery are transformed in place with engineered architectural films. The visual impact of reconstruction, without the demolition.',
+    line: 'Surface transformation across the environments people occupy.',
+    overview: 'Interior surfaces, architectural facades and specialist floor systems are renewed around the existing structure, with each approach specified for its setting and intended use.',
     manifesto: 'A room is understood through its surfaces: the warmth of a wall, the rhythm of joinery, the quiet continuity of a finish. We retain what works, then precisely alter what the eye and hand experience.',
     hero: '/images/div-built.png',
     heroAlt: 'Residential interior with wrapped architectural wall panels',
@@ -97,6 +106,30 @@ export const studios: Studio[] = [
       { title: 'Walls & Columns', line: 'Large planes become defining gestures.', detail: 'Stone, timber, textile and solid-colour finishes turn structural surfaces into a coherent architectural language.', image: '/images/be-commercial.png', alt: 'Commercial lobby with architectural stone surfaces' },
       { title: 'Doors & Joinery', line: 'High-contact details, precisely resolved.', detail: 'Durable systems bring continuity to doors, frames, desks and bespoke joinery without disruptive replacement.', image: '/images/be-corporate.png', alt: 'Corporate lobby with warm timber joinery' },
       { title: 'Counters & Displays', line: 'Working surfaces with renewed presence.', detail: 'Retail and hospitality fixtures gain robust, maintainable finishes calibrated for daily commercial use.', image: '/images/be-retail.png', alt: 'Premium retail interior with stone-textured displays' },
+    ],
+    territories: [
+      {
+        title: 'Interior',
+        copy: 'Architectural surface transformation for interiors — modernising cabinetry, joinery, walls, doors and fitted elements without unnecessary replacement.',
+        capabilities: ['Cabinetry & Joinery', 'Walls & Columns', 'Doors & Fitted Elements', 'Counters & Displays', 'Interior Surface Films', 'Decorative Surface Finishes'],
+        image: '/images/be-kitchen.png',
+        alt: 'Interior cabinetry with a refined architectural surface finish',
+      },
+      {
+        title: 'Exterior',
+        copy: 'Exterior surface transformation for buildings and commercial properties — changing colour, texture and visual identity while working with the existing structure.',
+        capabilities: ['Architectural Facades', 'Exterior Wall Surfaces', 'Exterior Cladding Transformations', 'Building Entrances & Shopfronts', 'Commercial Property Renewal', 'Architectural Feature Surfaces'],
+        image: '/images/be-commercial.png',
+        alt: 'Architectural commercial environment illustrating material transformation',
+      },
+      {
+        title: 'Floor Systems',
+        copy: 'Specialist flooring systems for residential, commercial and high-use environments.',
+        capabilities: ['Epoxy Flooring', 'Decorative Resin Floors', 'Commercial Floor Systems', 'High-Traffic Floor Systems', 'Residential Floor Finishes'],
+        image: '/images/be-hospitality.png',
+        alt: 'Hospitality environment illustrating specialist surface finishes',
+        partner: 'Epoxy flooring delivered in partnership with Echelon Flooring Company.',
+      },
     ],
     industries: [
       { title: 'Hospitality', line: 'Renewal without closing the door.', detail: 'Suites, corridors and shared spaces evolve while guest operations continue.', image: '/images/be-hospitality.png', alt: 'Boutique hotel suite with warm panelled wall' },
