@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { notFound, permanentRedirect } from 'next/navigation'
 import { SiteFooter } from '@/components/site-footer'
 import { SiteNav } from '@/components/site-nav'
 import { StudioPage } from '@/components/studio-page'
@@ -36,6 +36,15 @@ export default async function StudioRoute({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
+
+  if (slug === 'visual-communications' || slug === 'commercial-identity') {
+    permanentRedirect('/divisions/built-environments')
+  }
+
+  if (slug === 'glass-technologies') {
+    permanentRedirect('/divisions/glass-systems')
+  }
+
   const studio = getStudio(slug)
 
   if (!studio) notFound()

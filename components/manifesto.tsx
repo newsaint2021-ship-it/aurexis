@@ -19,7 +19,7 @@ export function Manifesto() {
         </Reveal>
         <Reveal delay={200}>
           <p className="mx-auto mt-10 max-w-2xl text-sm leading-relaxed text-primary-foreground/60">
-            Aurexis brings architectural, brand, glass and mobility surfaces into one practical discipline. The goal is not decoration for its own sake, but a clear material response to the space, asset and brief.
+            Aurexis brings built environments, glass systems and mobility surfaces into one practical discipline. Commercial identity is applied through the physical space, pane or vehicle — always as a material response to the asset and brief.
           </p>
         </Reveal>
         <Reveal delay={300}>

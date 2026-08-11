@@ -21,11 +21,11 @@ export const metadata: Metadata = {
     template: '%s — AUREXIS',
   },
   description:
-    'A surface transformation practice for built environments, commercial branding, glass technologies and mobility. Explore capabilities and prepare a project brief.',
+    'A surface transformation practice for architectural interiors and exteriors, glass systems and mobility assets. Explore capabilities and prepare a project brief.',
   openGraph: {
     title: 'AUREXIS — Surface Transformations',
     description:
-      'Transform existing surfaces across architecture, commercial branding, glass and mobility.',
+      'Transform existing surfaces across built environments, architectural glass and mobility.',
     siteName: 'AUREXIS',
     type: 'website',
   },

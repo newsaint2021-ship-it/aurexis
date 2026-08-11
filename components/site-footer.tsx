@@ -10,7 +10,7 @@ export function SiteFooter() {
           <div className="lg:col-span-5">
             <Logo inverted />
             <p className="mt-8 max-w-sm text-sm font-light leading-relaxed text-primary-foreground/55">
-              A surface transformation practice working across built environments, commercial branding, glass technologies and mobility.
+              A surface transformation practice working across built environments, glass systems and mobility.
             </p>
           </div>
           <nav aria-label="Studios" className="lg:col-span-3">
