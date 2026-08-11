@@ -4,24 +4,24 @@ import { Reveal } from '@/components/reveal'
 const systems = [
   {
     title: 'Interior surfaces',
-    description: 'Architectural films and finishes for joinery, doors, walls and fitted elements where replacement is unnecessary.',
-    image: '/images/hero-kitchen.png',
-    alt: 'Refined kitchen interior showing cabinetry and fitted surfaces',
-    applications: ['Joinery', 'Doors', 'Feature walls'],
+    description: 'Architectural films and finishes for cabinetry, walls and fitted elements where replacement is unnecessary.',
+    image: '/images/portfolio-cabinetry.avif',
+    alt: 'Kitchen with dark matte cabinetry and a patterned splashback',
+    applications: ['Cabinetry', 'Feature walls', 'Fitted joinery'],
   },
   {
-    title: 'Exterior surfaces',
-    description: 'Facade and envelope treatments considered around substrate condition, exposure and the intended visual result.',
-    image: '/images/be-commercial.png',
-    alt: 'Contemporary exterior facade with clean architectural surfaces',
-    applications: ['Facades', 'Entrances', 'Architectural details'],
+    title: 'Commercial interiors',
+    description: 'Coordinated surface renewal for reception areas, corridors and working environments.',
+    image: '/images/portfolio-wall-surfaces.avif',
+    alt: 'Commercial corridor with a continuous timber wall treatment',
+    applications: ['Wall surfaces', 'Reception areas', 'Workplaces'],
   },
   {
-    title: 'Floor systems',
-    description: 'Resinous and decorative floor directions specified around traffic, maintenance, appearance and site constraints.',
-    image: '/images/be-hospitality.png',
-    alt: 'Seamless architectural floor in a contemporary interior',
-    applications: ['Commercial floors', 'Hospitality', 'Residential spaces'],
+    title: 'Doors & joinery',
+    description: 'Focused transformation of doors, lift surrounds, counters and other retained interior assets.',
+    image: '/images/portfolio-doors.avif',
+    alt: 'Dark lift doors framed by warm timber panels',
+    applications: ['Doors', 'Panels', 'Counters'],
   },
 ]
 
