@@ -9,7 +9,7 @@ export function Divisions() {
     <section id="divisions" className="mx-auto max-w-7xl px-6 py-28 md:py-40">
       <Reveal>
         <p className="text-[0.65rem] font-medium uppercase tracking-[0.4em] text-accent">
-          Four Studios
+          Three Studios
         </p>
         <h2 className="mt-5 max-w-2xl font-serif text-4xl font-light leading-tight text-balance md:text-6xl">
           One material philosophy
@@ -18,7 +18,7 @@ export function Divisions() {
 
       <div className="mt-16 grid gap-8 md:grid-cols-2">
         {studios.map((studio, i) => (
-          <Reveal key={studio.slug} delay={i * 120}>
+          <Reveal key={studio.slug} delay={i * 120} className={i === 2 ? 'md:col-span-2' : undefined}>
             <Link
               href={`/divisions/${studio.slug}`}
               className="lift img-reveal group block overflow-hidden rounded-3xl bg-card"
@@ -28,7 +28,7 @@ export function Divisions() {
                   src={studio.hero}
                   alt={studio.heroAlt}
                   fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes={i === 2 ? '100vw' : '(max-width: 768px) 100vw, 50vw'}
                   className="object-cover"
                 />
               </div>

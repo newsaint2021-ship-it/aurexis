@@ -14,18 +14,14 @@ const slides = [
   {
     src: '/images/hero-glass.png',
     alt: 'Office glass partitions with gradient privacy film',
-    caption: 'Glass Technologies',
+    caption: 'Glass Systems',
   },
   {
     src: '/images/hero-vehicle.png',
     alt: 'Luxury vehicle with satin midnight blue wrap',
     caption: 'Mobility',
   },
-  {
-    src: '/images/hero-hotel.png',
-    alt: 'Boutique hotel lobby with layered architectural surfaces',
-    caption: 'Commercial Branding',
-  },
+
 ]
 
 const SLIDE_DURATION = 7000

@@ -9,7 +9,7 @@ import { company, studios } from '@/lib/site-data'
 import { cn } from '@/lib/utils'
 
 const pageLinks = [
-  { href: '/#built-environments', label: 'Built Environments' },
+  { href: '/#divisions', label: 'Studios' },
   { href: '/#approach', label: 'Approach' },
   { href: '/#process', label: 'Project Method' },
   { href: '/#consultation', label: 'Start a Project' },
@@ -66,7 +66,7 @@ export function SiteNav() {
         <div className="flex h-full flex-col overflow-y-auto px-6 pb-10 pt-28 md:px-12 md:pt-36">
           <div className="mx-auto grid w-full max-w-6xl gap-12 md:grid-cols-12">
             <nav aria-label="Studios" className="md:col-span-7">
-              <p className="mb-7 text-[0.65rem] font-medium uppercase tracking-[0.4em] text-primary-foreground/40">Four studios</p>
+              <p className="mb-7 text-[0.65rem] font-medium uppercase tracking-[0.4em] text-primary-foreground/40">Three studios</p>
               <ul className="flex flex-col">
                 {studios.map((studio) => (
                   <li key={studio.slug}>
