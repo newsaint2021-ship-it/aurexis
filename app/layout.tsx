@@ -15,16 +15,17 @@ const body = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://aurexis.vercel.app'),
   title: {
     default: 'AUREXIS — Surface Transformations',
     template: '%s — AUREXIS',
   },
   description:
-    'A surface transformation company. Built environments, commercial branding, glass technologies and mobility — engineered with precision from Cape Town and Victoria Falls.',
+    'A surface transformation practice for built environments, commercial branding, glass technologies and mobility. Explore capabilities and prepare a project brief.',
   openGraph: {
     title: 'AUREXIS — Surface Transformations',
     description:
-      'Engineering better experiences through surfaces. Architecture, commercial branding, glass and mobility.',
+      'Transform existing surfaces across architecture, commercial branding, glass and mobility.',
     siteName: 'AUREXIS',
     type: 'website',
   },
@@ -33,6 +34,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: '#062045',
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({
