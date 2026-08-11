@@ -4,7 +4,7 @@ import { Reveal } from '@/components/reveal'
 
 export function CtaBand({
   title = 'Begin the transformation',
-  line = 'A conversation, not a quotation. We respond within one working day.',
+  line = 'Share the surface, context and intended result for an informed first conversation.',
 }: {
   title?: string
   line?: string
@@ -25,10 +25,10 @@ export function CtaBand({
         </Reveal>
         <Reveal delay={150}>
           <Link
-            href="/contact"
+            href="/#consultation"
             className="glass-dark lift inline-flex items-center gap-3 rounded-2xl px-9 py-4.5 text-xs font-medium uppercase tracking-[0.2em] text-primary-foreground"
           >
-            Book Consultation
+            Start a Project
             <ArrowUpRight className="size-4" aria-hidden="true" />
           </Link>
         </Reveal>

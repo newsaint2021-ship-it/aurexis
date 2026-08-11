@@ -1,75 +1,58 @@
 import Image from 'next/image'
-import Link from 'next/link'
-import { ArrowUpRight } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
-import { projects } from '@/lib/projects'
+
+const systems = [
+  {
+    title: 'Interior surfaces',
+    description: 'Architectural films and finishes for joinery, doors, walls and fitted elements where replacement is unnecessary.',
+    image: '/images/hero-kitchen.png',
+    alt: 'Refined kitchen interior showing cabinetry and fitted surfaces',
+    applications: ['Joinery', 'Doors', 'Feature walls'],
+  },
+  {
+    title: 'Exterior surfaces',
+    description: 'Facade and envelope treatments considered around substrate condition, exposure and the intended visual result.',
+    image: '/images/be-commercial.png',
+    alt: 'Contemporary exterior facade with clean architectural surfaces',
+    applications: ['Facades', 'Entrances', 'Architectural details'],
+  },
+  {
+    title: 'Floor systems',
+    description: 'Resinous and decorative floor directions specified around traffic, maintenance, appearance and site constraints.',
+    image: '/images/be-hospitality.png',
+    alt: 'Seamless architectural floor in a contemporary interior',
+    applications: ['Commercial floors', 'Hospitality', 'Residential spaces'],
+  },
+]
 
 export function Projects() {
   return (
-    <section id="projects" className="mx-auto max-w-7xl px-6 py-28 md:py-40">
+    <section id="built-environments" className="mx-auto max-w-7xl px-6 py-28 md:py-40">
       <Reveal>
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <div>
-            <p className="text-[0.65rem] font-medium uppercase tracking-[0.4em] text-accent">
-              Selected Work
-            </p>
-            <h2 className="mt-5 max-w-2xl font-serif text-4xl font-light leading-tight text-balance md:text-6xl">
-              Environments, transformed
-            </h2>
-          </div>
-          <Link
-            href="/projects"
-            className="group flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
-          >
-            All case studies
-            <ArrowUpRight
-              className="size-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              aria-hidden="true"
-            />
-          </Link>
-        </div>
+        <p className="text-[0.65rem] font-medium uppercase tracking-[0.4em] text-accent">Built Environments</p>
+        <h2 className="mt-5 max-w-3xl font-serif text-4xl font-light leading-tight text-balance md:text-6xl">
+          Renew the surface before replacing the asset
+        </h2>
+        <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          We assess the existing substrate, intended use and visual brief before recommending a finish direction. Every proposal remains subject to survey, sample approval and technical suitability.
+        </p>
       </Reveal>
 
-      <div className="mt-16 flex flex-col gap-20 md:gap-28">
-        {projects.map((project, i) => (
-          <Reveal key={project.slug} as="article">
-            <div
-              className={`grid items-end gap-8 md:grid-cols-12 ${
-                i % 2 === 1 ? 'md:[&>*:first-child]:order-2' : ''
-              }`}
-            >
-              <Link
-                href={`/projects#${project.slug}`}
-                className="img-reveal block overflow-hidden rounded-3xl md:col-span-8"
-              >
-                <div className="relative aspect-[16/10]">
-                  <Image
-                    src={project.cover || '/placeholder.svg'}
-                    alt={project.coverAlt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 66vw"
-                    className="object-cover"
-                  />
-                </div>
-              </Link>
-              <div className="md:col-span-4 md:pb-4">
-                <h3 className="font-serif text-3xl font-normal md:text-4xl">
-                  {project.title}
-                </h3>
-                <dl className="mt-6 space-y-3 border-t border-border pt-6 text-sm">
-                  <div className="flex justify-between gap-4">
-                    <dt className="text-muted-foreground">Industry</dt>
-                    <dd>{project.industry}</dd>
-                  </div>
-                  <div className="flex justify-between gap-4">
-                    <dt className="text-muted-foreground">Location</dt>
-                    <dd>{project.location}</dd>
-                  </div>
-                  <div className="flex justify-between gap-4 text-right">
-                    <dt className="text-muted-foreground">Services</dt>
-                    <dd className="text-pretty">{project.services}</dd>
-                  </div>
-                </dl>
+      <div className="mt-16 grid gap-8 lg:grid-cols-3">
+        {systems.map((system, index) => (
+          <Reveal key={system.title} as="article" delay={index * 100}>
+            <div className="overflow-hidden rounded-3xl bg-card">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image src={system.image} alt={system.alt} fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover" />
+              </div>
+              <div className="p-7">
+                <h3 className="font-serif text-2xl font-normal">{system.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{system.description}</p>
+                <ul className="mt-6 flex flex-wrap gap-2" aria-label={`${system.title} applications`}>
+                  {system.applications.map((application) => (
+                    <li key={application} className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">{application}</li>
+                  ))}
+                </ul>
               </div>
             </div>
           </Reveal>

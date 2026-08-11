@@ -74,7 +74,7 @@ export function Hero() {
           Aurexis Surface Transformations
         </p>
         <h1 className="max-w-5xl font-serif text-5xl font-light leading-[1.05] text-primary-foreground text-balance md:text-7xl lg:text-8xl">
-          Engineering Better Surfaces
+          Transform the surface. Retain the asset.
         </h1>
 
         <div className="mt-8 h-5 overflow-hidden" aria-live="polite">
@@ -94,7 +94,7 @@ export function Hero() {
             Explore Studios
           </a>
           <Link
-            href="/contact"
+            href="/#consultation"
             className="lift rounded-2xl border border-primary-foreground/25 px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] text-primary-foreground/85 hover:text-primary-foreground"
           >
             Book Consultation

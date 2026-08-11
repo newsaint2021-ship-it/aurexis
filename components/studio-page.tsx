@@ -242,7 +242,7 @@ export function StudioPage({ studio }: { studio: Studio }) {
             <p className="text-[0.65rem] font-medium uppercase tracking-[0.4em] text-primary-foreground/50">Consultation</p>
             <h2 className="mt-5 font-serif text-5xl font-light leading-tight text-balance md:text-7xl">Begin Your Transformation</h2>
             <p className="mt-7 max-w-xl text-sm leading-relaxed text-primary-foreground/60 md:text-base">Bring us the surface, space or asset you want to rethink. We will define the material, method and controlled path forward.</p>
-            <Link href="/contact" className="lift mt-10 inline-flex items-center gap-3 rounded-xl bg-primary-foreground px-7 py-4 text-xs font-medium uppercase tracking-[0.18em] text-primary">
+            <Link href="/#consultation" className="lift mt-10 inline-flex items-center gap-3 rounded-xl bg-primary-foreground px-7 py-4 text-xs font-medium uppercase tracking-[0.18em] text-primary">
               Book a consultation <ArrowUpRight className="size-4" aria-hidden="true" />
             </Link>
           </Reveal>
