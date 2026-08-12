@@ -13,12 +13,12 @@ const slides = [
   },
   {
     src: '/images/hero-glass.png',
-    alt: 'Office glass partitions with gradient privacy film',
+    alt: 'Glazed office partitions dividing a daylit commercial interior',
     caption: 'Glass Systems',
   },
   {
     src: '/images/hero-vehicle.png',
-    alt: 'Luxury vehicle with satin midnight blue wrap',
+    alt: 'Sports car in a deep blue finish within a concrete interior',
     caption: 'Mobility',
   },
 
