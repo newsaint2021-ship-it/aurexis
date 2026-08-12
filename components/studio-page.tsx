@@ -22,7 +22,7 @@ function SurfaceSection({ studio }: { studio: Studio }) {
     <section className="bg-secondary">
       <div className="mx-auto max-w-7xl px-6 py-28 md:py-40">
         <SectionIntro eyebrow={studio.environmentsLabel} title="The familiar, made exceptional" copy="We work with the surfaces already present, changing how they perform, feel and define the whole." />
-        <div className="mt-16 grid gap-4 md:grid-cols-2 lg:mt-20 lg:grid-cols-4">
+        <div className={cn('mt-16 grid gap-4 md:grid-cols-2 lg:mt-20', studio.environments.length > 4 ? 'lg:grid-cols-3' : 'lg:grid-cols-4')}>
           {studio.environments.map((surface, index) => (
             <Reveal key={surface.title} delay={index * 70}>
               <article className="surface-card group relative min-h-[30rem] overflow-hidden rounded-3xl bg-primary text-primary-foreground" tabIndex={0}>
@@ -105,7 +105,7 @@ function GallerySection({ studio }: { studio: Studio }) {
   return (
     <section className="overflow-hidden bg-secondary py-28 md:py-40">
       <div className="mx-auto max-w-7xl px-6">
-        <SectionIntro eyebrow="Transformation gallery" title="The quality is in the whole — and the detail" />
+        <SectionIntro eyebrow="Capability references" title="The quality is in the whole — and the detail" copy="Curated references illustrate relevant finish directions and applications; final systems are confirmed by survey, sampling and technical suitability." />
       </div>
       <div className="mx-auto mt-16 flex max-w-[100rem] flex-col gap-6 px-6 lg:mt-20 lg:gap-10">
         <Reveal>
@@ -150,7 +150,7 @@ function GallerySection({ studio }: { studio: Studio }) {
 function MaterialsSection({ studio }: { studio: Studio }) {
   return (
     <section className="mx-auto max-w-7xl px-6 py-28 md:py-40">
-      <SectionIntro eyebrow="Featured materials" title="A tactile library, curated for purpose" copy="A small view into the finishes we specify. Every final selection is sampled against its light, substrate and expected use." />
+      <SectionIntro eyebrow="Aesthetics & palettes" title="Material, finish and application" copy="A curated view of relevant finish directions. Every final selection is sampled against its light, substrate and expected use." />
       <div className="mt-16 grid gap-x-4 gap-y-10 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3">
         {studio.materials.map((material, index) => (
           <Reveal key={material.title} delay={(index % 3) * 70}>
