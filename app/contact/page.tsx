@@ -1,186 +1,310 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import LegalPage from "@/components/LegalPage";
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowUpRight } from 'lucide-react'
+import { Breadcrumbs } from '@/components/breadcrumbs'
+import { ConsultationForm } from '@/components/consultation-form'
+import { JsonLd } from '@/components/json-ld'
+import { PageHero } from '@/components/page-hero'
+import { Reveal } from '@/components/reveal'
+import { SiteFooter } from '@/components/site-footer'
+import { SiteNav } from '@/components/site-nav'
+import { absoluteUrl, routes } from '@/lib/seo'
+import { company, legalEntity, primaryLocation } from '@/lib/site-data'
+import { ids } from '@/lib/structured-data'
 
 export const metadata: Metadata = {
-  title: "Contact Aurexis | Surface Transformations",
+  title: 'Contact — Surface Transformation Enquiries in Cape Town',
   description:
-    "Corporate and contact information for Aurexis Surface Transformations, a subsidiary of MSS TRADING (PTY) LTD.",
-  alternates: {
-    canonical: "https://aurexis-theta.vercel.app/contact",
+    'Contact Aurexis Surface Transformations in Observatory, Cape Town. Corporate details for MSS TRADING (PTY) LTD and a direct pathway to prepare a project brief.',
+  alternates: { canonical: routes.contact },
+  openGraph: {
+    title: 'Contact — AUREXIS',
+    description:
+      'Reach the Aurexis studio in Observatory, Cape Town, and prepare a project brief.',
+    url: routes.contact,
+    type: 'website',
   },
-};
+}
+
+const eyebrow = 'text-[0.65rem] font-medium uppercase tracking-[0.4em] text-accent'
+
+const briefChecklist = [
+  'The type of surface and where it sits in the building or on the vehicle',
+  'Project location and access conditions',
+  'Approximate dimensions or panel counts',
+  'The condition of the existing surface',
+  'The finish or outcome you have in mind',
+  'Photographs of the area, if you have them',
+]
 
 export default function ContactPage() {
+  const capeTown = company.offices[0]
+
   return (
-    <LegalPage
-      title="Contact Aurexis"
-      lastUpdated="19 September 2026"
-      description="Corporate, legal and support information for Aurexis Surface Transformations."
-    >
-      <section id="company">
-        <h2>1. Legal Entity</h2>
+    <>
+      <SiteNav />
+      <main id="main">
+        <PageHero
+          eyebrow="Contact"
+          title="Start a conversation"
+          line="Tell us about the surface, the context and the ambition. We will tell you what is possible."
+          compact
+        />
 
-        <p>
-          Aurexis Surface Transformations operates as a trading name of MSS
-          TRADING (PTY) LTD.
-        </p>
-
-        <div className="legal-page__notice">
-          <span className="legal-page__notice-title">
-            Legal trading identity
-          </span>
-
-          <p>
-            <strong>MSS TRADING (PTY) LTD t/a Aurexis Surface
-            Transformations</strong>
-          </p>
+        <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
+          <Breadcrumbs
+            trail={[
+              { name: 'Home', path: routes.home },
+              { name: 'Contact', path: routes.contact },
+            ]}
+          />
         </div>
 
-        <div className="legal-page__meta-grid">
-          <div className="legal-page__meta-item">
-            <span className="legal-page__meta-label">
-              Legal Entity
-            </span>
+        {/* Direct channels + studio location */}
+        <section className="mx-auto max-w-7xl px-6 pb-24 md:pb-32">
+          <div className="grid gap-14 lg:grid-cols-12 lg:gap-20">
+            <Reveal className="lg:col-span-5">
+              <p className={eyebrow}>Direct channels</p>
+              <h2 className="mt-5 font-serif text-4xl font-light leading-tight text-balance md:text-5xl">
+                Speak to the studio
+              </h2>
 
-            <span className="legal-page__meta-value">
-              MSS TRADING (PTY) LTD
-            </span>
+              <dl className="mt-10 flex flex-col divide-y divide-border border-y border-border text-sm">
+                <div className="flex flex-wrap items-baseline justify-between gap-2 py-5">
+                  <dt className="text-[0.65rem] font-medium uppercase tracking-[0.25em] text-muted-foreground">
+                    Telephone
+                  </dt>
+                  <dd>
+                    <a href={company.phoneHref} className="transition-colors hover:text-accent">
+                      {company.phone}
+                    </a>
+                  </dd>
+                </div>
+                <div className="flex flex-wrap items-baseline justify-between gap-2 py-5">
+                  <dt className="text-[0.65rem] font-medium uppercase tracking-[0.25em] text-muted-foreground">
+                    WhatsApp
+                  </dt>
+                  <dd>
+                    <a
+                      href={company.whatsappHref}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="transition-colors hover:text-accent"
+                    >
+                      {company.phone}
+                    </a>
+                  </dd>
+                </div>
+                <div className="flex flex-wrap items-baseline justify-between gap-2 py-5">
+                  <dt className="text-[0.65rem] font-medium uppercase tracking-[0.25em] text-muted-foreground">
+                    Email
+                  </dt>
+                  <dd>
+                    <a
+                      href={`mailto:${company.email}`}
+                      className="break-all transition-colors hover:text-accent"
+                    >
+                      {company.email}
+                    </a>
+                  </dd>
+                </div>
+                <div className="flex flex-wrap items-baseline justify-between gap-2 py-5">
+                  <dt className="text-[0.65rem] font-medium uppercase tracking-[0.25em] text-muted-foreground">
+                    Instagram
+                  </dt>
+                  <dd>
+                    <a
+                      href={company.instagramHref}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="transition-colors hover:text-accent"
+                    >
+                      {company.instagram}
+                    </a>
+                  </dd>
+                </div>
+              </dl>
+
+              <div className="mt-12">
+                <p className={eyebrow}>Studio location</p>
+                <address className="mt-5 text-sm font-light not-italic leading-relaxed text-muted-foreground">
+                  {primaryLocation.street}
+                  <br />
+                  {primaryLocation.suburb}
+                  <br />
+                  {primaryLocation.city}, {primaryLocation.region}
+                  <br />
+                  {primaryLocation.country}
+                </address>
+                <div className="mt-6 flex flex-wrap gap-4">
+                  <a
+                    href={company.googleBusinessProfile}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-3 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:border-accent hover:text-accent"
+                  >
+                    Google Business Profile <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                  </a>
+                  <a
+                    href={capeTown.mapHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-3 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:border-accent hover:text-accent"
+                  >
+                    Directions <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                  </a>
+                </div>
+                <p className="mt-6 text-sm font-light leading-relaxed text-muted-foreground">
+                  Aurexis works across {company.regions.slice(0, -1).join(', ')} and the
+                  wider {company.regions.at(-1)} region. Site visits outside Cape Town
+                  are arranged per project.
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal className="lg:col-span-7" delay={120}>
+              <div className="glass rounded-3xl p-6 md:p-10">
+                <p className={eyebrow}>Project brief</p>
+                <h2 className="mt-4 font-serif text-3xl font-light leading-tight md:text-4xl">
+                  Prepare an enquiry
+                </h2>
+                <p className="mt-4 text-sm font-light leading-relaxed text-muted-foreground">
+                  Recommendations, availability and pricing are confirmed only after the
+                  project requirements have been reviewed.
+                </p>
+                <div className="mt-8">
+                  <ConsultationForm />
+                </div>
+              </div>
+            </Reveal>
           </div>
+        </section>
 
-          <div className="legal-page__meta-item">
-            <span className="legal-page__meta-label">
-              Trading As
-            </span>
-
-            <span className="legal-page__meta-value">
-              Aurexis Surface Transformations
-            </span>
+        {/* What helps us respond accurately */}
+        <section className="bg-secondary">
+          <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+            <Reveal className="max-w-3xl">
+              <p className={eyebrow}>Before you write</p>
+              <h2 className="mt-5 font-serif text-4xl font-light leading-tight text-balance md:text-5xl">
+                What helps us answer properly
+              </h2>
+              <p className="mt-6 text-sm leading-relaxed text-muted-foreground md:text-base">
+                Accurate project information lets us assess requirements and determine
+                whether a site inspection, measurement or material assessment is
+                necessary before quoting.
+              </p>
+            </Reveal>
+            <ul className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
+              {briefChecklist.map((item, index) => (
+                <li key={item} className="flex gap-4 bg-card p-7">
+                  <span className="text-[0.65rem] tabular-nums tracking-[0.2em] text-accent">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span className="text-sm font-light leading-relaxed text-muted-foreground">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
+        </section>
 
-          <div className="legal-page__meta-item">
-            <span className="legal-page__meta-label">
-              Taxpayer Reference Number
-            </span>
-
-            <span className="legal-page__meta-value">
-              9070764197
-            </span>
-          </div>
-
-          <div className="legal-page__meta-item">
-            <span className="legal-page__meta-label">
-              Registered Address
-            </span>
-
-            <span className="legal-page__meta-value">
-              842-25 Novha Street, Block WW, Soshanguve, 0052
-            </span>
-          </div>
-        </div>
-      </section>
-
-      <section id="support">
-        <h2>2. Support &amp; Enquiries</h2>
-
-        <p>
-          For project enquiries, quotations and general support, use the
-          official Aurexis website and the contact channels made available
-          through the website.
-        </p>
-
-        <div className="legal-page__meta-grid">
-          <div className="legal-page__meta-item">
-            <span className="legal-page__meta-label">
-              Official Website
-            </span>
-
-            <span className="legal-page__meta-value">
-              <a
-                href="https://aurexis-theta.vercel.app"
-                target="_blank"
-                rel="noreferrer"
+        {/* Corporate registration */}
+        <section className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+          <div className="grid gap-14 lg:grid-cols-12 lg:gap-20">
+            <Reveal className="lg:col-span-5">
+              <p className={eyebrow}>Corporate information</p>
+              <h2 className="mt-5 font-serif text-4xl font-light leading-tight text-balance md:text-5xl">
+                The entity behind the work
+              </h2>
+              <p className="mt-6 text-sm font-light leading-relaxed text-muted-foreground">
+                Aurexis Surface Transformations is the trading name of{' '}
+                {legalEntity.name}. Contracts, quotations and invoices are issued in the
+                name of the legal entity.
+              </p>
+              <Link
+                href={routes.about}
+                className="mt-8 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] transition-colors hover:text-accent"
               >
-                aurexis-theta.vercel.app
-              </a>
-            </span>
+                About Aurexis <ArrowUpRight className="size-3.5" aria-hidden="true" />
+              </Link>
+            </Reveal>
+
+            <Reveal className="lg:col-span-7" delay={120}>
+              <dl className="grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-2">
+                <div className="bg-card p-6">
+                  <dt className="text-[0.65rem] font-medium uppercase tracking-[0.25em] text-muted-foreground">
+                    Legal entity
+                  </dt>
+                  <dd className="mt-2 text-sm leading-relaxed">{legalEntity.name}</dd>
+                </div>
+                <div className="bg-card p-6">
+                  <dt className="text-[0.65rem] font-medium uppercase tracking-[0.25em] text-muted-foreground">
+                    Trading as
+                  </dt>
+                  <dd className="mt-2 text-sm leading-relaxed">{legalEntity.tradingAs}</dd>
+                </div>
+                <div className="bg-card p-6">
+                  <dt className="text-[0.65rem] font-medium uppercase tracking-[0.25em] text-muted-foreground">
+                    Taxpayer reference
+                  </dt>
+                  <dd className="mt-2 text-sm leading-relaxed tabular-nums">
+                    {legalEntity.taxpayerReference}
+                  </dd>
+                </div>
+                <div className="bg-card p-6">
+                  <dt className="text-[0.65rem] font-medium uppercase tracking-[0.25em] text-muted-foreground">
+                    Chief Executive Officer
+                  </dt>
+                  <dd className="mt-2 text-sm leading-relaxed">{company.ceo}</dd>
+                </div>
+                <div className="bg-card p-6 sm:col-span-2">
+                  <dt className="text-[0.65rem] font-medium uppercase tracking-[0.25em] text-muted-foreground">
+                    Registered address
+                  </dt>
+                  <dd className="mt-2 text-sm leading-relaxed">
+                    {legalEntity.registeredAddress.lines.join(', ')},{' '}
+                    {legalEntity.registeredAddress.postalCode},{' '}
+                    {legalEntity.registeredAddress.country}
+                  </dd>
+                </div>
+              </dl>
+
+              <p className="mt-8 text-sm font-light leading-relaxed text-muted-foreground">
+                The registered address is the company&apos;s statutory address. Project
+                work is coordinated from the Cape Town studio. See our{' '}
+                <Link href={routes.privacy} className="underline decoration-accent underline-offset-4 hover:text-accent">
+                  Privacy Policy
+                </Link>
+                ,{' '}
+                <Link href={routes.terms} className="underline decoration-accent underline-offset-4 hover:text-accent">
+                  Terms of Service
+                </Link>{' '}
+                and{' '}
+                <Link href={routes.cookies} className="underline decoration-accent underline-offset-4 hover:text-accent">
+                  Cookie Policy
+                </Link>
+                .
+              </p>
+            </Reveal>
           </div>
+        </section>
+      </main>
+      <SiteFooter />
 
-          <div className="legal-page__meta-item">
-            <span className="legal-page__meta-label">
-              Support
-            </span>
-
-            <span className="legal-page__meta-value">
-              Contact through the official Aurexis website
-            </span>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects">
-        <h2>3. Project Enquiries</h2>
-
-        <p>
-          When contacting Aurexis about a project, useful information may
-          include the type of surface, project location, approximate
-          dimensions, existing surface condition, desired finish and
-          photographs of the area.
-        </p>
-
-        <p>
-          Providing accurate project information allows Aurexis to assess
-          requirements more effectively and determine whether a site
-          inspection, measurement or material assessment is necessary.
-        </p>
-      </section>
-
-      <section id="legal">
-        <h2>4. Legal &amp; Corporate Information</h2>
-
-        <p>
-          Aurexis Surface Transformations is a subsidiary and operating
-          business of MSS TRADING (PTY) LTD.
-        </p>
-
-        <p>
-          For information concerning the handling of personal information,
-          please refer to our{" "}
-          <Link href="/privacy-policy">Privacy Policy</Link>.
-        </p>
-
-        <p>
-          For website and service terms, please refer to our{" "}
-          <Link href="/terms-of-service">Terms of Service</Link>.
-        </p>
-
-        <p>
-          For information about cookies and similar technologies, please
-          refer to our <Link href="/cookie-policy">Cookie Policy</Link>.
-        </p>
-      </section>
-
-      <section id="location">
-        <h2>5. Registered Address</h2>
-
-        <div className="legal-page__notice">
-          <span className="legal-page__notice-title">
-            Registered Office
-          </span>
-
-          <p>
-            MSS TRADING (PTY) LTD
-            <br />
-            842-25 Novha Street
-            <br />
-            Block WW
-            <br />
-            Soshanguve, 0052
-            <br />
-            South Africa
-          </p>
-        </div>
-      </section>
-    </LegalPage>
-  );
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'ContactPage',
+          '@id': `${absoluteUrl(routes.contact)}#webpage`,
+          url: absoluteUrl(routes.contact),
+          name: 'Contact Aurexis Surface Transformations',
+          description:
+            'Contact details, studio location and corporate registration information for Aurexis Surface Transformations.',
+          about: { '@id': ids.business },
+          isPartOf: { '@id': ids.website },
+        }}
+      />
+    </>
+  )
 }
