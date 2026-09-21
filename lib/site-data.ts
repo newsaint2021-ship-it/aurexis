@@ -1,13 +1,17 @@
 export const company = {
   name: 'AUREXIS',
+  legalName: 'Aurexis Surface Transformations',
   tagline: 'Surface Transformations',
-  ceo: 'Avant Gardi',
+  ceo: 'Midas M',
+  ceoRole: 'Chief Executive Officer',
   phone: '061 820 2622',
   phoneHref: 'tel:+27618202622',
+  phoneE164: '+27618202622',
   whatsappHref: 'https://wa.me/27618202622',
   email: 'aurexiscorp@gmail.com',
   instagram: '@w3st_midas',
   instagramHref: 'https://instagram.com/w3st_midas',
+  googleBusinessProfile: 'https://maps.app.goo.gl/qfJr7eL7aiAQp3RT7?g_st=ic',
   offices: [
     {
       city: 'Cape Town',
@@ -25,6 +29,32 @@ export const company = {
     },
   ],
   regions: ['Cape Town', 'Victoria Falls', 'Southern Africa'],
+} as const
+
+/**
+ * Registered corporate identity. Aurexis Surface Transformations is the
+ * trading name; MSS TRADING (PTY) LTD is the legal entity behind it.
+ */
+export const legalEntity = {
+  name: 'MSS TRADING (PTY) LTD',
+  tradingAs: 'Aurexis Surface Transformations',
+  combined: 'MSS TRADING (PTY) LTD t/a Aurexis Surface Transformations',
+  taxpayerReference: '9070764197',
+  registeredAddress: {
+    lines: ['842-25 Novha Street', 'Block WW', 'Soshanguve'],
+    postalCode: '0052',
+    country: 'South Africa',
+  },
+} as const
+
+/** Physical trading location used for local search and LocalBusiness data. */
+export const primaryLocation = {
+  street: '30 Cole Street',
+  suburb: 'Observatory',
+  city: 'Cape Town',
+  region: 'Western Cape',
+  country: 'South Africa',
+  countryCode: 'ZA',
 } as const
 
 export type StudioEnvironment = {
