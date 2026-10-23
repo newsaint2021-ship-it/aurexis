@@ -22,6 +22,9 @@ export async function generateMetadata({
   return {
     title: `${studio.title} | Aurexis`,
     description: studio.overview,
+    alternates: {
+      canonical: `/divisions/${studio.slug}`,
+    },
     openGraph: {
       title: `${studio.title} | Aurexis`,
       description: studio.line,

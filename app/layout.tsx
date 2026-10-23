@@ -15,7 +15,10 @@ const body = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://aurexis.vercel.app'),
+  metadataBase: new URL('https://aurexis.co.za'),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: 'AUREXIS — Surface Transformations',
     template: '%s — AUREXIS',
